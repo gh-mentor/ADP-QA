@@ -46,16 +46,6 @@ INSERT INTO products (product_id, product_name, category_id) VALUES
 (4, 'Cookware Set', 4),
 (5, 'Yoga Mat', 5);
 
--- create a stored procedure to query products by category
-DELIMITER //
-CREATE PROCEDURE getProductsByCategory(IN categoryName VARCHAR(50))
-BEGIN
-    SELECT p.product_id, p.product_name, c.category_name
-    FROM products p
-    JOIN categories c ON p.category_id = c.category_id
-    WHERE c.category_name = categoryName;
-END //
-DELIMITER ;
 
 -- create a stored procedure to query products by name
 DELIMITER //
